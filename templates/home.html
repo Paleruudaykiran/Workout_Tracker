@@ -1,0 +1,21 @@
+{% extends 'main.html' %} 
+{% load static %}
+{% block content %} 
+<section class="bg-light">
+   <h3 class="text-muted text-center my-3 border-bottom p-2">Choose from the categories below</h3>
+    <div class="container-fluid">
+        <div class="row my-2">
+          {% for category in categories %} 
+          <div class="col-lg-4 my-2">
+            <div class="card" style="height:300px;">
+              <img src="{{category.image.url}}" class="card-img-top img-thumbnail" alt="..." style="position:relative;height:300px;">
+              <div class="card-body" style="position:absolute;bottom:0;margin:2px auto;right:0;left:0;">
+                <a href="{% url 'workouts' category.id %}" class="card-text btn btn-info fw-bold" style="width:100%">{{category.name}}</a>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+</section>
+{% endblock content %}

@@ -1,0 +1,42 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light navstyle shadow-sm">
+    <img class="logoimagestyle mx-1 d-block" src="{% static 'images/logo3.jpg' %}" />
+    <!-- <img class='logoimagestyle' src="{% static 'images/logo.png' %}" alt='image' /> -->
+    <button style="margin-left:auto;float:right;display: block;" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03" >
+      <img style="height:50px;" class='' src="{% static 'images/logo2.png' %}" alt='image' />
+      <ul class="navbar-nav mr-5 mt-2 mt-lg-0 h5"  style="margin-left:auto;">
+        <li class="nav-item active mx-2">
+          <a class="nav-link navlinkstyle" href="{% url 'home' %}">Home <span class="sr-only"></span></a>
+        </li>
+        <li class="nav-item mx-2">
+          <a class="nav-link navlinkstyle" href="{% url 'challenges' %}">Challenges</a>
+        </li>
+        <li class="nav-item mx-2">
+          <a class="nav-link navlinkstyle" href="{% url 'goals' %}">Goals</a>
+        </li>
+        <li class="nav-item mx-2">
+          <a class="nav-link navlinkstyle" href="{% url 'forum' %}">Forum</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav mr-5 mt-2 mt-lg-0 h5" style="margin-right:20px">
+        {% if user.username != '' %}
+        <li class="nav-item mx-2">
+          <a class="nav-link navlinkstyle" href="{% url 'profile' %}">Profile</a>
+        </li>
+        <li class="nav-item mx-2">
+          <a class="nav-link px-3 btn btn-secondary mx-2 fw-bold" href="{% url 'logout' %}">Logout</a>
+        </li>
+        {% else %}
+        <li class="nav-item">
+            <a class="nav-link px-3 btn btn-outline-primary mx-2 fw-bold" href="{% url 'login' %}">Login</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link px-3 btn btn-danger fw-bold" href="{% url 'register' %}">Register</a>
+        </li>
+       {% endif %}
+      </ul>
+    </div>
+  </nav>

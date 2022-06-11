@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section class="backgroundimg">
+<div class="row justify-content-around align-items-center d-flex" style="background-color:rgba(0,0,0,0.8);height:60vh;">
+    <div class="col-sm-5">
+        <h1 class="text-danger"><span class="text-white">Painful workouts</span> yield gainful results. This is true of every gain. No pain, no gain</h1>
+    </div>
+    <div class="shadow-lg col-sm-3 bg-light bg-gradient border-rounded p-3">
+        <form method="POST" class="border-rounded">
+            {% csrf_token %} 
+            <h3 class="border-bottom text-center">Log In</h3>
+            <div class="form-group  my-2 mx-1 bg-info">
+                <input placeholder="Username" class="form-control" name="username" type="text">
+            </div>
+            <div class="form-group">
+                <input placeholder="Password" class="form-control" name="password" type="password">
+            </div>
+            <div class="form-group my-2 mx-1">
+                <button class="btn btn-outline-primary d-block fw-bold btnstyle">Log In</button>
+            </div>
+        </form>
+        <div class="border-top pt-3">
+            <small class="text-muted">
+                Need an account ? <a href="{% url 'register' %}" class="ml-2">sign up</a>
+            </small>
+        </div>
+    </div>
+</div>
+<</section>
+{% endblock content %}
+

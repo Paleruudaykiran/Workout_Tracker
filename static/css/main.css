@@ -1,0 +1,76 @@
+body {
+    background-color: blue;
+}
+.navlinkstyle {
+    position: relative;
+    transition: 1s;
+}
+.navlinkstyle::after {
+    content:'';
+    transition: 0.5s;
+    width:0;
+    height:2px;
+    bottom:0;
+    left:0;
+    background-color:red;
+    position:absolute;
+    text-align: center;
+}
+.navlinkstyle:hover::after {
+    width:100%;
+}
+.navstyle {
+    box-shadow: 1px 2px 3px 2px white;
+}
+.logoimagestyle {
+    width:50px; 
+    border-radius: 100%;
+    background-color: inherit;
+}
+.sliderimg {
+    width:80%; 
+    text-align:center;
+    margin:0 auto;
+    height:500px;
+}
+.backgroundimg {
+    background-image: url('../images/slide3.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-origin: center;
+    background-size: auto;
+    height: 60vh;
+    background-color: brown;
+}
+.btnstyle {
+    display:block;
+    width:100%;
+}
+.imagehoverstyle:hover {
+    transform:scale(1.2,1.2);
+}
+.roomhover:hover {
+    background-color:black;
+}
+.room-form  input,select{
+      width:100%;
+      display:block;
+      
+      border-radius:2px;
+      border:none;
+}
+.room-form label {
+    display:block;
+    font-size: 16px;
+    margin-bottom:5px;
+}
+.cardhover {
+    transition: 0.5s;
+    background-color: rgba(0,0,0,0.7);
+    color:aqua;
+    border-radius: 10px;
+}
+.cardhover:hover {
+    background-color: rgba(0,0,0,0.8);
+
+}

@@ -1,0 +1,36 @@
+{% extends 'base.html' %} 
+{% load static %}
+{% block content %} 
+<div class="d-flex align-items-center bg-light p-2">
+  <h4 class="text-muted mx-auto">Challenges - <small>for keeping you motivated to do exercises</small></h4>
+  {% if request.user.is_authenticated %} 
+  <a href="{% url 'create_challenge' %}" class="btn btn-danger" style="margin-left:auto;margin-right:4px;">Create challenge</a>
+  {% endif %}
+</div>
+<section class="bg-light d-flex justify-content-start align-items-center p-3 g-3 flex-wrap">
+   {% for challenge in challenges %} 
+   <div class="m-2 cardhover shadow-lg mx-auto" style="width: 18rem;">
+    <img class="card-img-top img-thumbnail img-responsive" src="{{challenge.image.url}}" />
+    <div class="card-body">
+      <h5 class="card-title">{{challenge.title}}</h5>
+      <h6 class="card-subtitle mb-2 text-muted"><small>created by </small><a class='text-muted' href='{% url 'profile' %}' >{{challenge.user.username}}</a></h6>
+      <p class="card-text">{{challenge.description}}</p>
+      <div class="d-flex justify-content-between align-items-center">
+          <p class="card-subtitle text-muted">{{challenge.updated}} - {{challenge.id}}</p>
+          {% if request.user == challenge.user %} 
+                <div class="d-flex justify-content-between align-items-center" style="margin-left:auto;">
+                    <a onclick="" class="text-decoration-none py-0 mx-2 imagehoverstyle" href="{% url 'challenge_update' challenge.id %}"><img style="width:25px;color:black;" src="{% static 'images/editicon.png' %}"></a>
+                    <a class="text-decoration-none py-0 imagehoverstyle" href="{% url 'challenge_delete' challenge.id %}"><img style="width:25px;color:white;background-color:inherit;" src="{% static 'images/deleteicon.png' %}"></a>
+                </div>
+            {% endif %}
+      </div>
+      {% if challenge.title in lis %}
+      <a class="btn btn-info d-block w-100 my-2 fw-bold" href="#">participated</a>
+      {% else %} 
+      <a class="btn btn-outline-info d-block w-100 my-2 fw-bold" href="{% url 'participate_challenge' challenge.id %}">participate</a>
+      {% endif %}
+    </div>
+  </div>
+   {% endfor %}
+</section>
+{% endblock content %}
