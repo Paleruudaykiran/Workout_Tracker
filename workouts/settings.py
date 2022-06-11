@@ -133,5 +133,5 @@ LOGIN_URL ='login'
 MEDIA_ROOT = BASE_DIR + "/media"
 MEDIA_URL = '/media/'
 
-# WHITENOISE_USE_FINDERS = True
+WHITENOISE_USE_FINDERS = True
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
