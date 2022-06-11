@@ -1,1 +1,1 @@
-web: gunicorn <workouts>.wsgi --log-file -
+web: gunicorn workouts.wsgi --log-file -
