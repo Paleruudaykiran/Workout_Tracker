@@ -14,6 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from xml.dom.minidom import Document
+from django import urls
 from django.contrib import admin
 from django.urls import path,include
 import myapp
@@ -21,7 +22,11 @@ from users import views as user_views
 from django.contrib.auth import views as auth_views
 from django.conf.urls.static import static 
 from django.conf import settings 
-from myapp import views as myapp_views
+from myapp import views as myapp_views 
+from django.views.static import serve 
+# from django.urls import url
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('myapp.urls')),
@@ -44,7 +49,9 @@ urlpatterns = [
     path('create_challenge',myapp_views.create_challenge,name='create_challenge'),
     path('challenge_delete/<str:pk>/',myapp_views.challenge_delete,name='challenge_delete'),
     path('challenge_update/<str:pk>/',myapp_views.challenge_update,name="challenge_update"),
-    path('category/<str:pk>/',myapp_views.workouts,name='workouts')
+    path('category/<str:pk>/',myapp_views.workouts,name='workouts'),
+    #  url(r'^media/(?P<path>.*)$', serve,{'document_root':       settings.MEDIA_ROOT}), 
+    # url(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}), 
 ]
 
 if settings.DEBUG : 
