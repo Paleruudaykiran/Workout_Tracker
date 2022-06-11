@@ -50,10 +50,9 @@ urlpatterns = [
     path('challenge_delete/<str:pk>/',myapp_views.challenge_delete,name='challenge_delete'),
     path('challenge_update/<str:pk>/',myapp_views.challenge_update,name="challenge_update"),
     path('category/<str:pk>/',myapp_views.workouts,name='workouts'),
-    #  url(r'^media/(?P<path>.*)$', serve,{'document_root':       settings.MEDIA_ROOT}), 
-    # url(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}), 
+#     url(r'^media/(?P<path>.*)$', serve,{'document_root':       settings.MEDIA_ROOT}), 
+#     url(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}), 
 ]
 
-if settings.DEBUG : 
-    urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT) 
+urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT) 
 
